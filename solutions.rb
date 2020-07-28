@@ -34,3 +34,35 @@ def anagram(s)
       return s2.length
   end 
 end
+
+# Palindrome
+
+def palindromeIndex(s)
+  s= s.split("")
+  return -1 if s == s.reverse
+  s.each_with_index do |el, count|
+      removed = s[count]
+      s.delete_at(count)
+      return count if s == s.reverse
+      s.insert(count,removed)
+  end
+  return -1
+end
+
+# Even Fibonacci Numbers
+# https://www.hackerrank.com/contests/microverse-coding-challenges/challenges/euler002
+
+t = gets.strip.to_i
+for a0 in (0..t-1)
+    n = gets.strip.to_i
+    sum = 0
+    n_before = 1
+    n1 = 1
+    while n1 < n do
+        sum += n1 if n1%2==0
+        keep = n1
+        n1 = n1 + n_before
+        n_before = keep
+    end
+    puts sum
+end
