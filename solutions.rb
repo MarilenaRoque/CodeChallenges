@@ -38,15 +38,32 @@ end
 # Palindrome
 
 def palindromeIndex(s)
-  s= s.split("")
-  return -1 if s == s.reverse
-  s.each_with_index do |el, count|
-      removed = s[count]
-      s.delete_at(count)
-      return count if s == s.reverse
-      s.insert(count,removed)
+  unless s == s.reverse 
+      left = 0
+      right = s.length - 1
+      removed = 'nil'
+      while right > left
+          puts "Those are index: #{left}, #{right}"
+          puts "Those are the letters #{s[left]}, #{s[right]}"
+          if s[left] != s[right]
+              if (s[left + 1] == s[right] && removed == 'nil' && s[left+2]==s[right -1])
+                  removed = left
+                  left=left +1
+              elsif (s[left] == s[right - 1] && removed == 'nil' && s[left+1]==s[right -2])
+                  removed = right
+                  right= right - 1
+              else
+                  removed = -1
+                  break
+              end
+          end
+          left = left + 1
+          right = right -1   
+      end
+  else
+      removed = -1
   end
-  return -1
+  return removed
 end
 
 # Even Fibonacci Numbers
