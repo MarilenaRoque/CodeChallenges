@@ -8,6 +8,15 @@ class Node
   end
 end
 
+class Node
+  attr_accessor :value, :next_node
+  
+  def initialize(value, next_node = nil)
+	  @value = value
+    @next_node = next_node
+  end
+end
+
 class LinkedList
   def initialize
     @tail = nil
@@ -25,12 +34,18 @@ class LinkedList
   end
 
   def get(index)
-    puts "The list is empt" if @head.nil?
-    current = @head
+    node = get_node(index)
+    return node.value
+  end
+  
+  private
+  
+  def get_node(index)
+    current_node = @head
     (index).times do
-      current = current.next_node
+      current_node = current_node.next_node
     end
-    return current.value
+    return current_node
   end
 end
 
