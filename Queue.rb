@@ -3,13 +3,13 @@
 # In this challenge, there's one more detail: If remove is called on the empty Queue, return -1.
 
 class Node
-    attr_accessor :value, :next_node
+  attr_accessor :value, :next_node
     
-    def initialize(value, next_node = nil)
-        @value = value
-      @next_node = next_node
-    end
+  def initialize(value, next_node = nil)
+      @value = value
+    @next_node = next_node
   end
+end
   
   
   
