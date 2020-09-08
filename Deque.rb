@@ -34,6 +34,7 @@ class Deque
             @head = new_node
         else
             @tail.next_node = new_node
+            new_node.prev_node = tail
         end
         @tail = new_node
     end

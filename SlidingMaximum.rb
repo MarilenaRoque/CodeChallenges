@@ -34,6 +34,7 @@ class Deque
             @head = new_node
         else
             @tail.next_node = new_node
+            new_node.prev_node = @tail
         end
         @tail = new_node
     end
@@ -63,6 +64,7 @@ class Deque
     end
 
     def printValues
+        return puts "error" unless !@head.nil?
         compare = @head
         while !compare.nil?
             puts compare.value
@@ -80,13 +82,12 @@ deq.insertLast(150)
 
 deq.printValues
 deq.deleteLast
+puts "I am the new tail #{deq.tail.value}"
 deq.printValues
 deq.deleteLast
+puts "I am the new tail #{deq.tail.value}"
 deq.printValues
+deq.deleteLast
 puts "I am the new tail #{deq.tail.value}"
 deq.deleteLast
 deq.printValues
-puts "I am the new tail #{deq.tail.value}"
-deq.deleteLast
-deq.printValues
-puts "I am the new tail #{deq.tail.value}"
