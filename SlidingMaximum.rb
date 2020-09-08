@@ -71,23 +71,46 @@ class Deque
             compare = compare.next_node
         end
     end
-
 end
 
-deq = Deque.new
-deq.insertFirst(20)
-deq.insertFirst(5000)
-deq.insertLast(50)
-deq.insertLast(150)
+def sliding_maximum(arr,k)
+    deq = Deque.new
+    deq.insertFirst(0)
+    (1).upto(k-1) do |i|
+        while (!deq.tail.nil? && arr[deq.tail.value] <= arr[i]) do
+            deq.deleteLast
+        end
+        deq.insertLast(i)
+    end
+    puts arr[deq.head.value]
+    (k).upto(arr.length - 1) do |i|
+        if deq.head.value <= (i-k)
+            deq.deleteFirst
+        end
+        while (!deq.tail.nil? && arr[deq.tail.value] <= arr[i]) do
+            deq.deleteLast
+        end
+        deq.insertLast(i)
+        puts arr[deq.head.value]
+    end 
+end
 
-deq.printValues
-deq.deleteLast
-puts "I am the new tail #{deq.tail.value}"
-deq.printValues
-deq.deleteLast
-puts "I am the new tail #{deq.tail.value}"
-deq.printValues
-deq.deleteLast
-puts "I am the new tail #{deq.tail.value}"
-deq.deleteLast
-deq.printValues
+sliding_maximum([12, 1, 78, 90, 57, 89, 56], 3)
+
+# deq = Deque.new
+# deq.insertFirst(20)
+# deq.insertFirst(5000)
+# deq.insertLast(50)
+# deq.insertLast(150)
+
+# deq.printValues
+# deq.deleteLast
+# puts "I am the new tail #{deq.tail.value}"
+# deq.printValues
+# deq.deleteLast
+# puts "I am the new tail #{deq.tail.value}"
+# deq.printValues
+# deq.deleteLast
+# puts "I am the new tail #{deq.tail.value}"
+# deq.deleteLast
+# deq.printValues
