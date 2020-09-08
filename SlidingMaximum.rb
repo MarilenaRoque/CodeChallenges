@@ -51,7 +51,15 @@ class Deque
     end
 
     def deleteLast
-        
+        if @tail.nil?
+            puts "error: deque is empty!"
+        elsif @tail.prev_node.nil?
+            @head = nil
+            @tail = nil
+        else
+            @tail = @tail.prev_node
+            @tail.next_node = nil
+        end    
     end
 
     def printValues
@@ -63,15 +71,6 @@ class Deque
     end
 
 end
-#Insert Front
-#Insert Last
-#Delete Front
-#Delete Last
-
-#get Front
-#get Rear
-#is Empty
-#is Full
 
 deq = Deque.new
 deq.insertFirst(20)
@@ -79,21 +78,15 @@ deq.insertFirst(5000)
 deq.insertLast(50)
 deq.insertLast(150)
 
-# deq.printValues
-# deq.deleteFirst
-# deq.printValues
-# puts "I am the new head #{deq.head.value}"
-# deq.deleteFirst
-# deq.printValues
-# puts "I am the new head #{deq.head.value}"
-# deq.deleteFirst
-# deq.printValues
-# puts "I am the new head #{deq.head.value}"
-# deq.deleteFirst
-# deq.printValues
-# puts "I am the new head #{deq.head.value}"
-
-
-# puts "I am the last value #{deq.tail.value}"
-# puts "I am the node #{deq.tail}"
-# puts "I am the next value of the head #{deq.head.next_node.value}"
+deq.printValues
+deq.deleteLast
+deq.printValues
+deq.deleteLast
+deq.printValues
+puts "I am the new tail #{deq.tail.value}"
+deq.deleteLast
+deq.printValues
+puts "I am the new tail #{deq.tail.value}"
+deq.deleteLast
+deq.printValues
+puts "I am the new tail #{deq.tail.value}"
