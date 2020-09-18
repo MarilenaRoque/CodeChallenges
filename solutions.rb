@@ -107,11 +107,11 @@ def workbook(n, k, arr)
 end
 
 
-# https://www.hackerrank.com/contests/microverse-coding-challenges/challenges/drawing-book/submissions/code/1325700506
-# drawning book
+# https://www.hackerrank.com/contests/microverse-coding-challenges/challenges/the-hurdle-race/submissions/code/1326151400
+# THe hurdle Race ( Extra Challenge )
 
-def pageCount(n, p)
-    possibles_flips = (n/2).floor
-    front_flips = (p/2).floor
-    return [front_flips, possibles_flips - front_flips].min
+def hurdleRace(k, height)
+    portions = height.max - k
+    portions = portions > 0 ? portions : 0
+    return portions
 end
