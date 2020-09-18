@@ -12,3 +12,22 @@ def factorialRecursive(n)
     end
 end
 
+def fibonacciSimple(n)
+    prev1 = 1
+    prev2 = 1
+    el = 1
+    n.times do |i|
+        if |i| < 3
+            el = 1
+        
+        el = prev1 + prev2
+        prev1 = prev2
+        prev2 = el
+    end
+    el
+end
+
+put
+
+        
+
