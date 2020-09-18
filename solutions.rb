@@ -105,3 +105,13 @@ def workbook(n, k, arr)
     return special
 
 end
+
+
+# https://www.hackerrank.com/contests/microverse-coding-challenges/challenges/drawing-book/submissions/code/1325700506
+# drawning book
+
+def pageCount(n, p)
+    possibles_flips = (n/2).floor
+    front_flips = (p/2).floor
+    return [front_flips, possibles_flips - front_flips].min
+end
