@@ -13,21 +13,24 @@ def factorialRecursive(n)
 end
 
 def fibonacciSimple(n)
-    prev1 = 1
-    prev2 = 1
-    el = 1
+    seq = []
+
     n.times do |i|
-        if |i| < 3
-            el = 1
-        
-        el = prev1 + prev2
-        prev1 = prev2
-        prev2 = el
+        if i < 2
+            seq << 1
+        else
+            seq << seq[i-1] + seq[i-2]
+        end
     end
-    el
+    seq 
 end
 
-put
+def fibonacciRecursive(n)
+    if n < 2
+        n
+    else
+       fibonacciRecursive(n-1) + fibonacciRecursive(n-2)
+    end
+end
 
-        
 
