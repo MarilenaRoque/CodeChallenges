@@ -26,7 +26,9 @@ def fibonacciSimple(n)
 end
 
 def fibonacciRecursive(n)
-    if n < 2
+    if n == 0
+        0
+    elsif n == 1
         n
     else
        fibonacciRecursive(n-1) + fibonacciRecursive(n-2)
@@ -53,5 +55,3 @@ def bottles(n)
         bottles(n-1)
     end
 end
-
-bottles(20)
