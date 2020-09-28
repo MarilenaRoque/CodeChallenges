@@ -55,3 +55,14 @@ def bottles(n)
         bottles(n-1)
     end
 end
+
+def flattening(arr, resul=[])
+   arr.each do |el|
+        if el.kind_of?(Array)
+            flattening(el,resul)
+        else
+            resul << el
+        end
+    end
+    resul
+end
