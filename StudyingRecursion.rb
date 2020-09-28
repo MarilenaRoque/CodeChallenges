@@ -33,4 +33,14 @@ def fibonacciRecursive(n)
     end
 end
 
-
+def palindromeRecursive(s)
+    if s.length == 0 || s.length == 1
+        return true
+    else
+        if s[0] == s[-1]
+            palindromeRecursive(s[1..-2])
+        else
+            false
+        end
+    end
+end
