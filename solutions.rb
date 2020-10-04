@@ -83,3 +83,35 @@ for a0 in (0..t-1)
     end
     puts sum
 end
+
+## Lisa workbook (Extra Code Challenge)
+##https://www.hackerrank.com/contests/microverse-coding-challenges/challenges/lisa-workbook/submissions/code/1326649975
+
+def workbook(n, k, arr)
+    page = 0
+    special = 0
+    book = {}
+    0.upto(arr.length-1) do |i|
+        page = page + 1
+        1.upto(arr[i]) do |j|
+            if page == j
+                special = special +1
+            end
+            if (j%k == 0 && j!= arr[i])
+                page = page + 1 
+            end
+        end   
+    end
+    return special
+
+end
+
+
+# https://www.hackerrank.com/contests/microverse-coding-challenges/challenges/the-hurdle-race/submissions/code/1326151400
+# THe hurdle Race ( Extra Challenge )
+
+def hurdleRace(k, height)
+    portions = height.max - k
+    portions = portions > 0 ? portions : 0
+    return portions
+end
