@@ -1,14 +1,16 @@
-# Lists  
+# frozen_string_literal: true
 
-# Create your own LinkedList  class for storing integers which should include two methods:  
-# add(number) - Add a new Node to the end of the list with a value of number. Nothing needs to be returned. 
-# get(index) - Return the value of the Node at position `index` in the List.   
+# Lists
+
+# Create your own LinkedList  class for storing integers which should include two methods:
+# add(number) - Add a new Node to the end of the list with a value of number. Nothing needs to be returned.
+# get(index) - Return the value of the Node at position `index` in the List.
 
 class Node
   attr_accessor :value, :next_node
-  
+
   def initialize(value, next_node = nil)
-	  @value = value
+    @value = value
     @next_node = next_node
   end
 end
@@ -22,7 +24,7 @@ class LinkedList
   def add(number)
     new_node = Node.new(number)
     if @tail.nil?
-      @head=new_node
+      @head = new_node
     else
       @tail.next_node = new_node
     end
@@ -31,12 +33,12 @@ class LinkedList
 
   def get(index)
     node = get_node(index)
-    return node.value
+    node.value
   end
-  
+
   def add_at(index, value)
     new_node = Node.new(value)
-    if index == 0
+    if index.zero?
       if @head.nil?
         @tail = new_node
       else
@@ -53,9 +55,9 @@ class LinkedList
       prev_node.next_node = new_node
     end
   end
-  
+
   def remove(index)
-    if index == 0
+    if index.zero?
       @head = @head.next_node
     else
       prev_node = get_node(index - 1)
@@ -64,15 +66,15 @@ class LinkedList
       @tail = prev_node if prev_node.next_node.nil?
     end
   end
-  
+
   private
-  
+
   def get_node(index)
     current_node = @head
-    (index).times do
+    index.times do
       current_node = current_node.next_node
     end
-    return current_node
+    current_node
   end
 end
 
