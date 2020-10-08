@@ -111,3 +111,23 @@ def hurdleRace(k, height)
   portions = portions > 0 ? portions : 0
   portions
 end
+
+# https://www.hackerrank.com/contests/microverse-coding-challenges/challenges/fair-rations/submissions/code/1327175678
+#Fair Rations (Ectra Challenge)
+
+def fairRations(array)
+  count = 0
+  0.upto(array.length - 1) do |i|
+      if array[i].odd? && array[i+1]
+              array[i+1] += 1 
+              array[i] += 1
+              count += 2
+      end
+  end 
+  if array.any? {|el| el.odd?}
+      count = 'NO'
+  end
+  
+  return count
+  
+end
