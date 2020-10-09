@@ -1,5 +1,7 @@
 # CodeChallenges
 
+![Code Challenge](screenshot.png)
+
 This repository tracks all my code challenge solutions from the Microverse "Algorithm and Data Structure" Curriculum. All the solutions were written in Ruby language.
 
 That Curriculum Contains Challenges from 3 platforms.
