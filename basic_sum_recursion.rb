@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 def sum(number)
   return 0 if number.zero?
 

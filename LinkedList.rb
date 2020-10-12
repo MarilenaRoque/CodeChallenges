@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Lists
 
 # Create your own LinkedList  class for storing integers which should include two methods:

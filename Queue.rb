@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Queue
 # Create a Queue with the two methods add and remove. Use your LinkedList class to keep track of the elements internally.
 # In this challenge, there's one more detail: If remove is called on the empty Queue, return -1.

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 def surfaceArea(array)
   surface_area = 0
   top = array.length * array[0].length

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Node
   attr_accessor :value, :previous_node
 
