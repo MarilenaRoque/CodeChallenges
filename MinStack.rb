@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Min Stack
 # Create a Stack that contains the standard push and pop methods.
 # It should also contain another method min that returns the minimum number in the Stack.

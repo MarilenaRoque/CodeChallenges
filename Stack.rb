@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Stack
 # Create a Stack with two methods push and pop.
 # Use your LinkedList class to keep track of the elements internally.
