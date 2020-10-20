@@ -5,7 +5,7 @@ class Node
     def initialize(data)
       @data = data
     end
-  end
+  
   
   def array_to_tree(array, i)
     return nil if i >= array.length || array[i] == 0
