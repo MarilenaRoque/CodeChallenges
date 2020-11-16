@@ -18,20 +18,36 @@ def array_to_tree(array, i=0)
     node
 end
 
-# helper function
-def height(node)
-    return 0 if tree.nil?
-    return 1 + [recursive_height(tree.right), recursive_height(tree.left)].max
+def binary_tree_height(array_tree)
+    tree = array_to_tree(array_tree, 0)
+    return height(tree)
   end
+
+# helper function
+def height(tree)
+    return 0 if tree.nil?
+    return 1 + [height(tree.right), height(tree.left)].max
 end
 
 def balanced_tree?(array)
   root = array_to_tree(array)
-	# write your code here
+  return is_balanced?(root)
+end
+
+def is_balanced?(tree)
+    return true if tree.nil?
+    if !([-1,0,1].include?(height(tree.right) - height(tree.left)))
+        return false
+    end
+    return is_balanced?(tree.right) && is_balanced?(tree.left)
 end
 
 puts balanced_tree?([1, 2, 0, 3, 4, 0, 0])
 # => false
 
+
 puts balanced_tree?([1, 2, 3, 4, 5, 6, 7])
 # => true
+
+puts balanced_tree?([2,7,5,2,6,5,9,0,0,5,11,0,0,14,0])
+# => false
