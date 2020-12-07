@@ -31,19 +31,36 @@ def depth_first_search(graph)
     end
     return output
   end
+  
+  
+def connected_graph?(graph)
+  iteration_array = depth_first_search(graph)
+  connected = true
+  graph.each do |key, value|
+    if !iteration_array.include?(key)
+      connected = false
+    end
+  end
+  return connected
+  
+end
 
-  p depth_first_search({
-    0 => [2], 
-    1 => [4], 
-    2 => [5, 0, 3], 
-    3 => [2], 
-    4 => [1, 5], 
-    5 => [4, 2]
-  })
-  # => [0, 2, 5, 4, 1, 3]
+puts connected_graph?({
+  0 => [2], 
+  1 => [4], 
+  2 => [0, 5, 3], 
+  3 => [5, 2], 
+  4 => [5, 1], 
+  5 => [4, 2, 3]
+})
+# => true
 
-
-#   depth_first_search({0=>[1, 2], 1=>[0, 2], 2=>[0, 1, 3, 4, 5], 3=>[2, 4], 4=>[3, 2], 5=>[2]})
-
-#   expected: [0, 1, 2, 3, 4, 5]
-#      got: [0, 1, 2, 3, 5, 4]
+puts connected_graph?({
+  0 => [1, 2], 
+  1 => [0, 2], 
+  2 => [0, 1, 3, 4, 5], 
+  3 => [2, 4], 
+  4 => [3, 2], 
+  5 => [2]
+})
+# => true
